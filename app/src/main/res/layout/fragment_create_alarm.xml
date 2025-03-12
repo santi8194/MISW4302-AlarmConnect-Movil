@@ -1,0 +1,301 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center_horizontal"
+    android:orientation="vertical"
+    tools:context=".ui.home.HomeFragment">
+
+    <TextView
+        style="@style/TextAppearance.Material3.HeadlineMedium"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
+        android:text="Crear Alarma" />
+
+
+    <TextView
+        android:id="@+id/pregunta_para_quien"
+        style="@style/TextAppearance.Material3.TitleMedium"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="40dp"
+        android:layout_marginBottom="20dp"
+        android:text="¿Para quién es la alarma?" />
+
+
+    <LinearLayout
+        android:id="@+id/opciones_para_quien"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/para_mi_card"
+            android:layout_width="0dp"
+            app:cardCornerRadius="10dp"
+            android:layout_marginBottom="2dp"
+            android:layout_marginTop="2dp"
+            android:layout_marginStart="2dp"
+            app:cardBackgroundColor="@color/md_theme_surfaceContainerLow"
+            android:layout_height="match_parent"
+            android:layout_marginEnd="10dp"
+            android:layout_weight="1">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:paddingHorizontal="16dp">
+
+                <TextView
+                    style="@style/TextAppearance.Material3.TitleMedium"
+                    android:layout_width="wrap_content"
+                    android:layout_marginVertical="16dp"
+                    android:layout_height="wrap_content"
+                    android:text="Para mi"
+                    android:textColor="@color/md_theme_onSurface" />
+                <TextView
+                    style="@style/TextAppearance.Material3.BodyMedium"
+                    android:layout_width="wrap_content"
+                    android:layout_marginVertical="16dp"
+                    android:layout_height="wrap_content"
+                    android:text="La alarma solo sonará en tu celular"
+                    android:textColor="@color/md_theme_onSurfaceVariant" />
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
+        <androidx.cardview.widget.CardView
+            android:id="@+id/otra_persona_card"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            app:cardCornerRadius="10dp"
+            app:cardBackgroundColor="@color/md_theme_surfaceContainerLow"
+            android:layout_marginBottom="2dp"
+            android:layout_marginEnd="2dp"
+            android:layout_marginTop="2dp"
+            android:layout_weight="1">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:paddingHorizontal="16dp">
+
+                <TextView
+                    style="@style/TextAppearance.Material3.TitleMedium"
+                    android:layout_width="wrap_content"
+                    android:layout_marginVertical="16dp"
+                    android:layout_height="wrap_content"
+                    android:text="Otra persona"
+                    android:textColor="@color/md_theme_onSurface" />
+                <TextView
+                    style="@style/TextAppearance.Material3.BodyMedium"
+                    android:layout_width="wrap_content"
+                    android:layout_marginVertical="16dp"
+                    android:layout_height="wrap_content"
+                    android:text="La alarma sonará en el celular de otra persona"
+                    android:textColor="@color/md_theme_onSurfaceVariant" />
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
+
+    </LinearLayout>
+
+    <TableLayout
+        android:id="@+id/crear_alarma_table"
+        android:visibility="gone"
+        android:layout_width="match_parent"
+        android:layout_marginTop="16dp"
+        android:layout_height="wrap_content">
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" >
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="wrap_content"
+                android:text="Nombre:"
+                android:textAppearance="@style/TextAppearance.Material3.LabelMedium"
+                android:textStyle="bold" />
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/outlinedTextField"
+                android:layout_width="190dp"
+                android:layout_height="wrap_content"
+                android:hint="Nombre">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    />
+
+            </com.google.android.material.textfield.TextInputLayout>
+        </TableRow>
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" >
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="wrap_content"
+                android:text="Fecha y Hora:"
+                android:textAppearance="@style/TextAppearance.Material3.LabelMedium"
+                android:textStyle="bold" />
+            <Button
+            style="?attr/materialButtonOutlinedStyle"
+            android:layout_width="190dp"
+            android:layout_height="wrap_content"
+            android:text="12 de Marzo 8:00 AM"
+            />
+        </TableRow>
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" >
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="wrap_content"
+                android:text="Nota de Voz:"
+                android:textAppearance="@style/TextAppearance.Material3.LabelMedium"
+                android:textStyle="bold" />
+            <Button
+                style="?attr/materialButtonOutlinedStyle"
+                android:layout_width="190dp"
+                android:layout_height="wrap_content"
+                android:text="Grabar"
+                />
+        </TableRow>
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" >
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="wrap_content"
+                android:text="Volumen:"
+                android:textAppearance="@style/TextAppearance.Material3.LabelMedium"
+                android:textStyle="bold" />
+            <Button
+                style="?attr/materialButtonOutlinedStyle"
+                android:layout_width="190dp"
+                android:layout_height="wrap_content"
+                android:text="80% Vibración Activada"
+                />
+        </TableRow>
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" >
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="wrap_content"
+                android:text="Prioridad:"
+                android:textAppearance="@style/TextAppearance.Material3.LabelMedium"
+                android:textStyle="bold" />
+            <LinearLayout
+                android:layout_width="190dp"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <Button
+                    android:id="@+id/baja_btn"
+                    style="?attr/materialButtonOutlinedStyle"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:paddingLeft="10dp"
+                    android:paddingRight="10dp"
+                    android:text="Baja"
+                    android:textAppearance="@style/TextAppearance.Material3.LabelSmall" />
+                <Button
+                    android:id="@+id/media_btn"
+                    style="?attr/materialButtonOutlinedStyle"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:paddingLeft="10dp"
+                    android:paddingRight="10dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="5dp"
+                    android:text="Media"
+                    android:textAppearance="@style/TextAppearance.Material3.LabelSmall" />
+                    />
+                <Button
+                    android:id="@+id/alta_btn"
+                    style="?attr/materialButtonOutlinedStyle"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:paddingLeft="10dp"
+                    android:paddingRight="10dp"
+                    android:layout_height="wrap_content"
+                    android:text="Alta"
+                    android:textAppearance="@style/TextAppearance.Material3.LabelSmall" />
+                    />
+            </LinearLayout>
+        </TableRow>
+        <TableRow
+            android:id="@+id/contacto_confianza_row"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" >
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="wrap_content"
+                android:text="Contacto de Confianza:"
+                android:textAppearance="@style/TextAppearance.Material3.LabelMedium"
+                android:textStyle="bold" />
+            <Button
+                style="?attr/materialButtonOutlinedStyle"
+                android:layout_width="190dp"
+                android:layout_height="wrap_content"
+                android:text="Seleccionar contacto"
+                />
+        </TableRow>
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" >
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="wrap_content"
+                android:text="Repetición:"
+                android:textAppearance="@style/TextAppearance.Material3.LabelMedium"
+                android:textStyle="bold" />
+            <Button
+                style="?attr/materialButtonOutlinedStyle"
+                android:layout_width="190dp"
+                android:layout_height="wrap_content"
+                android:text="Lunes, Martes Semanal"
+                />
+        </TableRow>
+    </TableLayout>
+    <Space
+        android:layout_width="match_parent"
+        android:layout_weight="1"
+        android:layout_height="0dp" />
+
+    <Button
+        android:id="@+id/cancelar_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="40dp"
+        android:text="Cancelar" />
+    <Button
+        android:id="@+id/guardar_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="40dp"
+        android:visibility="gone"
+        android:text="Guardar" />
+
+
+
+</LinearLayout>

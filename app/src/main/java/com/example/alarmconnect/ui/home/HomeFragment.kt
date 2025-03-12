@@ -6,9 +6,11 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.alarmconnect.AlarmsListItem
 import com.example.alarmconnect.AlarmsListAdapter
+import com.example.alarmconnect.R
 import com.example.alarmconnect.databinding.FragmentHomeBinding
 
 class HomeFragment : Fragment() {
@@ -44,6 +46,14 @@ class HomeFragment : Fragment() {
         val recyclerView = binding.homeRecyclerView
         recyclerView.layoutManager = LinearLayoutManager(context)
         recyclerView.adapter = AlarmsListAdapter(items)
+
+
+        // navigate to create new alarm
+        binding.crearNuevaAlarmaButton.setOnClickListener {
+            // Navigate to CreateNewAlarmFragment
+            findNavController().navigate(R.id.action_navigation_alarms_to_createAlarmFragment)
+        }
+
         return root
     }
 
