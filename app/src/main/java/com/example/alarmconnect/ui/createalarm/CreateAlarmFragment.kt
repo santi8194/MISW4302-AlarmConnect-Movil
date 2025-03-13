@@ -13,45 +13,31 @@ import com.example.alarmconnect.R
 import com.example.alarmconnect.databinding.FragmentCirculoBinding
 import com.example.alarmconnect.databinding.FragmentCreateAlarmBinding
 import com.example.alarmconnect.ui.circulo.CirculoViewModel
+import com.google.android.material.datepicker.CalendarConstraints
+import com.google.android.material.datepicker.MaterialDatePicker
+import com.google.android.material.timepicker.MaterialTimePicker
+import com.google.android.material.timepicker.TimeFormat
+import java.util.Date
 
 class CreateAlarmFragment : Fragment() {
 
     private var _binding: FragmentCreateAlarmBinding? = null
     private val binding get() = _binding!!
-    private var tipoAlarma = "paraMi"
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        val createAlarmViewModel =
-            ViewModelProvider(this).get(CreateAlarmViewModel::class.java)
-
         _binding = FragmentCreateAlarmBinding.inflate(inflater, container, false)
+        val tipoAlarma = arguments?.getString("tipoAlarma")
 
-        binding.cancelarButton.setOnClickListener {
-            findNavController().navigateUp()
-        }
-
-        binding.paraMiCard.setOnClickListener {
-            binding.preguntaParaQuien.visibility = View.GONE
-            binding.opcionesParaQuien.visibility = View.GONE
-            binding.cancelarButton.visibility = View.GONE
-            binding.crearAlarmaTable.visibility = View.VISIBLE
-            binding.guardarButton.visibility = View.VISIBLE
+        if (tipoAlarma == "paraMi") {
             binding.contactoConfianzaRow.visibility = View.GONE
-            tipoAlarma = "paraMi"
-        }
-        binding.otraPersonaCard.setOnClickListener {
-            binding.preguntaParaQuien.visibility = View.GONE
-            binding.opcionesParaQuien.visibility = View.GONE
-            binding.cancelarButton.visibility = View.GONE
-            binding.crearAlarmaTable.visibility = View.VISIBLE
-            binding.guardarButton.visibility = View.VISIBLE
+        } else {
             binding.contactoConfianzaRow.visibility = View.VISIBLE
-            tipoAlarma = "otraPersona"
         }
 
+        // Nivel de prioridad para alarma
         val bajaButton = binding.bajaBtn
         val mediaButton = binding.mediaBtn
         val altaButton = binding.altaBtn
@@ -70,6 +56,33 @@ class CreateAlarmFragment : Fragment() {
         bajaButton.setOnClickListener(onClickListener)
         mediaButton.setOnClickListener(onClickListener)
         altaButton.setOnClickListener(onClickListener)
+
+        // Selección de fecha y hora
+        val calendarConstants = CalendarConstraints.Builder().setStart(Date().time).build()
+        val datePicker =
+            MaterialDatePicker.Builder.datePicker()
+                .setTitleText("Seleccionar fecha para la alarma")
+                .setCalendarConstraints(calendarConstants)
+                .build()
+        val timePicker =
+            MaterialTimePicker.Builder()
+                .setTimeFormat(TimeFormat.CLOCK_12H)
+                .setHour(12)
+                .setMinute(10)
+                .setTitleText("Seleccionar hora para la alarma")
+                .build()
+        datePicker.addOnPositiveButtonClickListener {
+            timePicker.show(parentFragmentManager, "tag")
+        }
+        binding.seleccionarFechaButton.setOnClickListener {
+            datePicker.show(parentFragmentManager, "tag")
+        }
+
+        // Guardar
+        binding.guardarButton.setOnClickListener {
+
+            findNavController().navigateUp()
+        }
 
         return binding.root
     }

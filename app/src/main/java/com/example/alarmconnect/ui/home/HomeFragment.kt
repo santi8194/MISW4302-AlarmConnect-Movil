@@ -51,7 +51,7 @@ class HomeFragment : Fragment() {
         // navigate to create new alarm
         binding.crearNuevaAlarmaButton.setOnClickListener {
             // Navigate to CreateNewAlarmFragment
-            findNavController().navigate(R.id.action_navigation_alarms_to_createAlarmFragment)
+            findNavController().navigate(R.id.action_navigation_alarms_to_tipoAlarmaFragment)
         }
 
         return root
