@@ -12,8 +12,6 @@
         tools:layout="@layout/fragment_home" >
 
         <action
-            android:id="@+id/action_navigation_alarms_to_createAlarmFragment"
-            app:destination="@id/createAlarmFragment" />
             android:id="@+id/action_navigation_alarms_to_tipoAlarmaFragment"
             app:destination="@id/tipo_alarma" />
     </fragment>
@@ -41,8 +39,19 @@
         tools:layout="@layout/fragment_create_alarm"
         android:label="Crear Alarma" >
 
+        <action
+            android:id="@+id/action_navigation_createAlarmFragment_to_grabar"
+            app:destination="@id/grabarFragment" />
         <argument
             android:name="tipoAlarma"
             app:argType="string" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/grabarFragment"
+        android:name="com.example.alarmconnect.ui.grabar.GrabarFragment"
+        tools:layout="@layout/fragment_grabar"
+        android:label="Grabar Audio" >
+
     </fragment>
 </navigation>

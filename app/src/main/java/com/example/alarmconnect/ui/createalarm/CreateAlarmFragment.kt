@@ -78,6 +78,11 @@ class CreateAlarmFragment : Fragment() {
             datePicker.show(parentFragmentManager, "tag")
         }
 
+        // Nota de voz
+        binding.grabarButton.setOnClickListener {
+            findNavController().navigate(R.id.action_navigation_createAlarmFragment_to_grabar)
+        }
+
         // Guardar
         binding.guardarButton.setOnClickListener {
 
