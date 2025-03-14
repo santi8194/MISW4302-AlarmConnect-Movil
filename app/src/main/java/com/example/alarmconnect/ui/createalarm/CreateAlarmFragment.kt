@@ -85,7 +85,7 @@ class CreateAlarmFragment : Fragment() {
 
         // Guardar
         binding.guardarButton.setOnClickListener {
-
+            findNavController().navigateUp()
             findNavController().navigateUp()
         }
 
