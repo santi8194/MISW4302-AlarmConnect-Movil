@@ -1,6 +1,7 @@
 package com.example.alarmconnect.ui.home
 
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -26,6 +27,7 @@ class HomeFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
+        Log.e("CirculoFragment", "✅ onCreateView() de HOME FRAGMENT SE ESTÁ EJECUTANDO")
         val homeViewModel =
             ViewModelProvider(this).get(HomeViewModel::class.java)
 
