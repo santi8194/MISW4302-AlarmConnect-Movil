@@ -1,60 +1,85 @@
 package com.example.alarmconnect.ui.volumen
 
+import android.media.MediaPlayer
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.fragment.app.Fragment
+import androidx.navigation.fragment.findNavController
 import com.example.alarmconnect.R
+import com.example.alarmconnect.databinding.FragmentConfiguracionVolumenVibrarBinding
+import com.google.android.material.slider.Slider
 
-// TODO: Rename parameter arguments, choose names that match
-// the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-private const val ARG_PARAM1 = "param1"
-private const val ARG_PARAM2 = "param2"
-
-/**
- * A simple [Fragment] subclass.
- * Use the [ConfiguracionVolumenFragment.newInstance] factory method to
- * create an instance of this fragment.
- */
 class ConfiguracionVolumenFragment : Fragment() {
-    // TODO: Rename and change types of parameters
-    private var param1: String? = null
-    private var param2: String? = null
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        arguments?.let {
-            param1 = it.getString(ARG_PARAM1)
-            param2 = it.getString(ARG_PARAM2)
-        }
-    }
+    private var _binding: FragmentConfiguracionVolumenVibrarBinding? = null
+    private val binding get() = _binding!!
+    private var mediaPlayer: MediaPlayer? = null
+    private var isPlaying = false
+    private var volumenActual = 0.5f // Valor inicial del volumen
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.configuracion_volumen_vibrar, container, false)
+    ): View {
+        _binding = FragmentConfiguracionVolumenVibrarBinding.inflate(inflater, container, false)
+
+
+        // Configurar el slider de volumen
+        binding.sliderVolume.addOnChangeListener { _, value, _ ->
+            volumenActual = value / 100f // Convertir el valor del slider a un rango de 0.0 - 1.0
+            binding.textVolumeLevel.text = value.toInt().toString()
+        }
+
+        // Configurar el botón de reproducir
+        binding.playButton.setOnClickListener {
+            if (!isPlaying) {
+                startPlaying()
+            } else {
+                stopPlaying()
+            }
+        }
+
+        // Configurar el botón de guardar para volver a Crear Alarma
+        binding.buttonGuardar.setOnClickListener {
+            findNavController().navigate(R.id.action_configuracionVolumenFragment_to_create_alarm_fragment)
+        }
+
+        return binding.root
     }
 
-    companion object {
-        /**
-         * Use this factory method to create a new instance of
-         * this fragment using the provided parameters.
-         *
-         * @param param1 Parameter 1.
-         * @param param2 Parameter 2.
-         * @return A new instance of fragment ConfiguracionVolumen.
-         */
-        // TODO: Rename and change types and number of parameters
-        @JvmStatic
-        fun newInstance(param1: String, param2: String) =
-            ConfiguracionVolumenFragment().apply {
-                arguments = Bundle().apply {
-                    putString(ARG_PARAM1, param1)
-                    putString(ARG_PARAM2, param2)
+    private fun startPlaying() {
+        if (mediaPlayer == null) {
+            mediaPlayer = MediaPlayer.create(requireContext(), R.raw.audio_sample).apply {
+                setVolume(volumenActual, volumenActual) // Aplicar volumen actual
+                start()
+
+                // Listener que detecta cuando el audio termina
+                setOnCompletionListener {
+                    stopPlaying()
                 }
             }
+        } else {
+            mediaPlayer?.setVolume(volumenActual, volumenActual) // Aplicar volumen antes de reproducir
+            mediaPlayer?.start()
+        }
+
+        isPlaying = true
+        binding.playButton.setIconResource(R.drawable.rectangle) // Cambia el icono a "Stop"
+    }
+
+    private fun stopPlaying() {
+        mediaPlayer?.pause()
+        mediaPlayer?.seekTo(0) // Reiniciar el audio al principio
+        isPlaying = false
+        binding.playButton.setIconResource(R.drawable.ic_play) // Cambia el icono a "Play"
+    }
+
+    override fun onDestroyView() {
+        super.onDestroyView()
+        mediaPlayer?.release()
+        mediaPlayer = null
+        _binding = null
     }
 }

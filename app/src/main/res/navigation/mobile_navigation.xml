@@ -62,6 +62,9 @@
         <action
             android:id="@+id/action_crearAlarmaFragment_to_seleccionarContactoFragment"
             app:destination="@id/seleccionar_contacto" />
+        <action
+            android:id="@+id/action_create_alarm_fragment_to_configuracionVolumenFragment"
+            app:destination="@id/configuracionVolumenFragment" />
     </fragment>
 
     <fragment
@@ -70,5 +73,14 @@
         tools:layout="@layout/fragment_grabar"
         android:label="Grabar Audio" >
 
+    </fragment>
+    <fragment
+        android:id="@+id/configuracionVolumenFragment"
+        android:name="com.example.alarmconnect.ui.volumen.ConfiguracionVolumenFragment"
+        android:label="configuracion_volumen_vibrar"
+        tools:layout="@layout/fragment_configuracion_volumen_vibrar" >
+        <action
+            android:id="@+id/action_configuracionVolumenFragment_to_create_alarm_fragment"
+            app:destination="@id/create_alarm_fragment" />
     </fragment>
 </navigation>

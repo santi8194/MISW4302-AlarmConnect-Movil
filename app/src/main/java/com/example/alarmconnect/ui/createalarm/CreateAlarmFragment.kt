@@ -89,6 +89,12 @@ class CreateAlarmFragment : Fragment() {
             findNavController().navigate(R.id.action_crearAlarmaFragment_to_seleccionarContactoFragment)
         }
 
+        //Btn seleccionar contacto
+        binding.selVolumenBtn.setOnClickListener {
+            findNavController().navigate(R.id.action_create_alarm_fragment_to_configuracionVolumenFragment)
+        }
+
+
         return binding.root
     }
 

@@ -44,7 +44,7 @@
             android:layout_height="wrap_content"
             android:layout_marginBottom="8dp"
             android:text="Volumen"
-            android:textSize="18sp"
+            android:textAppearance="@style/TextAppearance.Material3.LabelMedium"
             android:textStyle="bold" />
 
         <!-- Slider de Volumen -->
@@ -64,7 +64,7 @@
             android:layout_gravity="center_horizontal"
             android:layout_marginTop="8dp"
             android:text="50"
-            android:textSize="16sp"
+            android:textAppearance="@style/TextAppearance.Material3.LabelSmall"
             android:textStyle="bold" />
     </LinearLayout>
 
@@ -85,12 +85,14 @@
             android:layout_weight="1"
             android:layout_height="wrap_content"
             android:text="Vibrar:"
-            android:textSize="16sp"
+            android:textAppearance="@style/TextAppearance.Material3.LabelMedium"
             android:textStyle="bold"/>
         <CheckBox
             android:id="@+id/check_vibrar"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"/>
+            android:layout_height="wrap_content"
+            android:checked="true"
+            />
     </LinearLayout>
 
     <!-- Volumen Creciente -->
@@ -110,7 +112,7 @@
             android:layout_weight="1"
             android:layout_height="wrap_content"
             android:text="Volumen Creciente:"
-            android:textSize="16sp"
+            android:textAppearance="@style/TextAppearance.Material3.LabelMedium"
             android:textStyle="bold"/>
         <CheckBox
             android:id="@+id/check_volumen_creciente"
@@ -135,7 +137,7 @@
             android:layout_weight="1"
             android:layout_height="wrap_content"
             android:text="Reproducir:"
-            android:textSize="16sp"
+            android:textAppearance="@style/TextAppearance.Material3.LabelMedium"
             android:textStyle="bold"/>
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/play_button"
@@ -153,11 +155,11 @@
         style="@style/Widget.Material3.Button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Guardar"
+        android:layout_marginBottom="20dp"
+        android:text="Guardar Configuración"
         android:textAppearance="@style/TextAppearance.Material3.LabelMedium"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        android:layout_marginBottom="20dp"/>
+        app:layout_constraintStart_toStartOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
