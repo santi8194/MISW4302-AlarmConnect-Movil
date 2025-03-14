@@ -9,11 +9,49 @@
         android:id="@+id/navigation_home"
         android:name="com.example.alarmconnect.ui.home.HomeFragment"
         android:label="@string/title_home"
-        tools:layout="@layout/fragment_home" />
+        tools:layout="@layout/fragment_home" >
 
+        <action
+            android:id="@+id/action_navigation_alarms_to_tipoAlarmaFragment"
+            app:destination="@id/tipo_alarma" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/tipo_alarma"
+        android:name="com.example.alarmconnect.ui.tipoalarma.TipoAlarmaFragment"
+        android:label="Tipo Alarma"
+        tools:layout="@layout/fragment_tipo_alarma" >
+
+        <action
+            android:id="@+id/action_navigation_tipo_alarma_to_create_alarm_fragment"
+            app:destination="@id/create_alarm_fragment">
+        </action>
+    </fragment>
     <fragment
         android:id="@+id/navigation_circulo"
         android:name="com.example.alarmconnect.ui.circulo.CirculoFragment"
         android:label="@string/title_circulo"
         tools:layout="@layout/fragment_circulo" />
+
+    <fragment
+        android:id="@+id/create_alarm_fragment"
+        android:name="com.example.alarmconnect.ui.createalarm.CreateAlarmFragment"
+        tools:layout="@layout/fragment_create_alarm"
+        android:label="Crear Alarma" >
+
+        <action
+            android:id="@+id/action_navigation_createAlarmFragment_to_grabar"
+            app:destination="@id/grabarFragment" />
+        <argument
+            android:name="tipoAlarma"
+            app:argType="string" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/grabarFragment"
+        android:name="com.example.alarmconnect.ui.grabar.GrabarFragment"
+        tools:layout="@layout/fragment_grabar"
+        android:label="Grabar Audio" >
+
+    </fragment>
 </navigation>

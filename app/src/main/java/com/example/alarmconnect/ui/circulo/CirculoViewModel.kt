@@ -7,7 +7,7 @@ import androidx.lifecycle.ViewModel
 class CirculoViewModel : ViewModel() {
 
     private val _text = MutableLiveData<String>().apply {
-        value = "This is notifications Fragment"
+        value = "Pantalla 'Círculo de Confianza' en construcción"
     }
     val text: LiveData<String> = _text
 }
