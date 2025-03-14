@@ -6,15 +6,16 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.example.alarmconnect.AlarmsListAdapter
 import com.example.alarmconnect.CirculoListAdapter
 import com.example.alarmconnect.ContactoConfianza
-import com.example.alarmconnect.databinding.FragmentCirculoBinding
+import com.example.alarmconnect.R
+import com.example.alarmconnect.databinding.FragmentSeleccionarContactoBinding
 
-class CirculoFragment : Fragment() {
+class SeleccionarContactoFragment : Fragment() {
 
-    private var _binding: FragmentCirculoBinding? = null
+    private var _binding: FragmentSeleccionarContactoBinding? = null
     private val binding get() = _binding!!
     private lateinit var adapter: CirculoListAdapter
 
@@ -23,27 +24,29 @@ class CirculoFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        Log.e("CirculoFragment", "✅ onCreateView() SE ESTÁ EJECUTANDO")
-        _binding = FragmentCirculoBinding.inflate(inflater, container, false)
+        // Log.e("CirculoFragment", "✅ onCreateView() SE ESTÁ EJECUTANDO")
+        _binding = FragmentSeleccionarContactoBinding.inflate(inflater, container, false)
         val root: View = binding.root
 
-        // 🔹 Lista de contactos estáticos
+        // Lista de contactos estáticos
         val contactos = listOf(
             ContactoConfianza("Felipe Gomez", "Hermano"),
             ContactoConfianza("Ana Martinez", "Amiga"),
-            ContactoConfianza("Carlos Perez", "Compañero")
+            ContactoConfianza("Carlos Perez", "Compañero"),
+            ContactoConfianza("Clara Delgado", "Mamá") ,
+            ContactoConfianza("Yuya Gonzalez", "Familia")
         )
 
-        Log.d("CirculoFragment", "Número de contactos: ${contactos.size}")
 
-        // 🔹 Configurar el RecyclerView
-        adapter = CirculoListAdapter(contactos) { contacto ->
+        // Pasar NavController y función onClick al Adapter
+        adapter = CirculoListAdapter(contactos, findNavController()) { contacto ->
             Log.d("CirculoFragment", "Contacto seleccionado: ${contacto.nombre}")
         }
 
         // Set up RecyclerView
         binding.recyclerCirculo.layoutManager = LinearLayoutManager(requireContext())
-        binding.recyclerCirculo.adapter = adapter  // 🔹 Asegura que se asigna aquí antes de renderizar
+        binding.recyclerCirculo.adapter = adapter
+
 
         return root
     }

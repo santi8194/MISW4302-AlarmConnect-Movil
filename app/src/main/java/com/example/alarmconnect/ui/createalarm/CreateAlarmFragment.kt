@@ -6,13 +6,9 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
-import android.widget.TextView
-import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import com.example.alarmconnect.R
-import com.example.alarmconnect.databinding.FragmentCirculoBinding
 import com.example.alarmconnect.databinding.FragmentCreateAlarmBinding
-import com.example.alarmconnect.ui.circulo.CirculoViewModel
 import com.google.android.material.datepicker.CalendarConstraints
 import com.google.android.material.datepicker.MaterialDatePicker
 import com.google.android.material.timepicker.MaterialTimePicker
@@ -87,6 +83,10 @@ class CreateAlarmFragment : Fragment() {
         binding.guardarButton.setOnClickListener {
             findNavController().navigateUp()
             findNavController().navigateUp()
+        }
+        //Btn seleccionar contacto
+        binding.selContactoBtn.setOnClickListener {
+            findNavController().navigate(R.id.action_crearAlarmaFragment_to_seleccionarContactoFragment)
         }
 
         return binding.root

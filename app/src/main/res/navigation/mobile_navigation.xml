@@ -29,9 +29,22 @@
     </fragment>
     <fragment
         android:id="@+id/navigation_circulo"
-        android:name="com.example.alarmconnect.ui.circulo.CirculoFragment"
+        android:name="com.example.alarmconnect.ui.circulo.SeleccionarContactoFragment"
         android:label="@string/title_circulo"
-        tools:layout="@layout/fragment_circulo" />
+        tools:layout="@layout/fragment_seleccionar_contacto"
+        />
+
+    <fragment
+        android:id="@+id/seleccionar_contacto"
+        android:name="com.example.alarmconnect.ui.circulo.SeleccionarContactoFragment"
+        android:label="@string/title_circulo"
+        tools:layout="@layout/fragment_seleccionar_contacto">
+
+        <action
+            android:id="@+id/action_seleccionarContactoFragment_to_crearAlarmaFragment"
+            app:destination="@id/create_alarm_fragment" />
+    </fragment>
+
 
     <fragment
         android:id="@+id/create_alarm_fragment"
@@ -45,6 +58,10 @@
         <argument
             android:name="tipoAlarma"
             app:argType="string" />
+
+        <action
+            android:id="@+id/action_crearAlarmaFragment_to_seleccionarContactoFragment"
+            app:destination="@id/seleccionar_contacto" />
     </fragment>
 
     <fragment

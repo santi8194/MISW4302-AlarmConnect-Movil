@@ -5,7 +5,7 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.example.alarmconnect.ContactoConfianza
 
-class CirculoViewModel : ViewModel() {
+class SeleccionarContactoViewModel : ViewModel() {
 
     private val _contactos = MutableLiveData<List<ContactoConfianza>>().apply {
         value = listOf(

@@ -27,7 +27,7 @@ class HomeFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        Log.e("CirculoFragment", "✅ onCreateView() de HOME FRAGMENT SE ESTÁ EJECUTANDO")
+        //Log.e("CirculoFragment", "✅ onCreateView() de HOME FRAGMENT SE ESTÁ EJECUTANDO")
         val homeViewModel =
             ViewModelProvider(this).get(HomeViewModel::class.java)
 

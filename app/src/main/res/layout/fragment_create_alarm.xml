@@ -95,6 +95,7 @@
                 android:textAppearance="@style/TextAppearance.Material3.LabelMedium"
                 android:textStyle="bold" />
             <Button
+                android:id="@+id/sel_volumen_btn"
                 style="?attr/materialButtonOutlinedStyle"
                 android:layout_width="190dp"
                 android:layout_height="wrap_content"
@@ -165,6 +166,7 @@
                 android:textAppearance="@style/TextAppearance.Material3.LabelMedium"
                 android:textStyle="bold" />
             <Button
+                android:id="@+id/sel_contacto_btn"
                 style="?attr/materialButtonOutlinedStyle"
                 android:layout_width="190dp"
                 android:layout_height="wrap_content"
@@ -183,6 +185,7 @@
                 android:textAppearance="@style/TextAppearance.Material3.LabelMedium"
                 android:textStyle="bold" />
             <Button
+                android:id="@+id/sel_repeticion_btn"
                 style="?attr/materialButtonOutlinedStyle"
                 android:layout_width="190dp"
                 android:layout_height="wrap_content"
