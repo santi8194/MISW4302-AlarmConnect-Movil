@@ -29,7 +29,7 @@
     </fragment>
     <fragment
         android:id="@+id/navigation_circulo"
-        android:name="com.example.alarmconnect.ui.circulo.SeleccionarContactoFragment"
+        android:name="com.example.alarmconnect.ui.circulo.MiCirculoConfianzaFragment"
         android:label="@string/title_circulo"
         tools:layout="@layout/fragment_seleccionar_contacto"
         />
