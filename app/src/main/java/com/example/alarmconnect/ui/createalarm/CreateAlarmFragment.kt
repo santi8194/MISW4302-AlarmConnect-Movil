@@ -81,8 +81,7 @@ class CreateAlarmFragment : Fragment() {
 
         // Guardar
         binding.guardarButton.setOnClickListener {
-            findNavController().navigateUp()
-            findNavController().navigateUp()
+            findNavController().navigate(R.id.action_create_alarm_fragment_to_navigation_home)
         }
         //Btn seleccionar contacto
         binding.selContactoBtn.setOnClickListener {

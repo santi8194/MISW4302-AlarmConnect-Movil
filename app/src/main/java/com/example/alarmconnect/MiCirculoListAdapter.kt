@@ -14,7 +14,7 @@ class MiCirculoListAdapter(
             binding.nombreContacto.text = contacto.nombre
             binding.relacionContacto.text = contacto.relacion
             binding.eliminarButton.setOnClickListener {
-                // Acción de eliminar (puede quedar vacío por ahora)
+                //TODO
             }
         }
     }

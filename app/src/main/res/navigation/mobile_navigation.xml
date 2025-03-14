@@ -30,7 +30,7 @@
     <fragment
         android:id="@+id/navigation_circulo"
         android:name="com.example.alarmconnect.ui.circulo.MiCirculoConfianzaFragment"
-        android:label="@string/title_circulo"
+        android:label="Mi Circulo de Confianza"
         tools:layout="@layout/fragment_seleccionar_contacto"
         />
 
@@ -68,6 +68,9 @@
         <action
             android:id="@+id/action_create_alarm_fragment_to_configuracionRepeticionFragment"
             app:destination="@id/configuracionRepeticionFragment" />
+        <action
+            android:id="@+id/action_create_alarm_fragment_to_navigation_home"
+            app:destination="@id/navigation_home" />
     </fragment>
 
     <fragment

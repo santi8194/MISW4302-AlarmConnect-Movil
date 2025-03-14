@@ -43,7 +43,7 @@ class MiCirculoConfianzaFragment : Fragment() {
         binding.recyclerMiCirculo.layoutManager = LinearLayoutManager(requireContext())
         binding.recyclerMiCirculo.adapter = MiCirculoListAdapter(listaMiCirculo)
 
-        // Acción del botón Buscar Externos (Por ahora sin función específica)
+        // Acción del botón Buscar Externos
         binding.buttonBuscarExternos.setOnClickListener {
             //TODO
         }

@@ -43,12 +43,12 @@
     <!-- Botón de Seleccionar -->
     <Button
         android:id="@+id/eliminarButton"
-        style="@style/Widget.Material3.Button"
+        style="@style/Widget.Material3.Button.OutlinedButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Eliminar"
         android:textSize="11sp"
-        android:textColor="@android:color/white"
+        android:textColor="@android:color/black"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"
