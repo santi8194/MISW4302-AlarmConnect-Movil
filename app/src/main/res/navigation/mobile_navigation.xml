@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mobile_navigation"
+    app:startDestination="@+id/navigation_home">
+
+    <fragment
+        android:id="@+id/navigation_home"
+        android:name="com.example.alarmconnect.ui.home.HomeFragment"
+        android:label="@string/title_home"
+        tools:layout="@layout/fragment_home" >
+
+        <action
+            android:id="@+id/action_navigation_alarms_to_tipoAlarmaFragment"
+            app:destination="@id/tipo_alarma" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/tipo_alarma"
+        android:name="com.example.alarmconnect.ui.tipoalarma.TipoAlarmaFragment"
+        android:label="Tipo Alarma"
+        tools:layout="@layout/fragment_tipo_alarma" >
+
+        <action
+            android:id="@+id/action_navigation_tipo_alarma_to_create_alarm_fragment"
+            app:destination="@id/create_alarm_fragment">
+        </action>
+    </fragment>
+    <fragment
+        android:id="@+id/navigation_circulo"
+        android:name="com.example.alarmconnect.ui.circulo.MiCirculoConfianzaFragment"
+        android:label="Mi Circulo de Confianza"
+        tools:layout="@layout/fragment_seleccionar_contacto"
+        />
+
+    <fragment
+        android:id="@+id/seleccionar_contacto"
+        android:name="com.example.alarmconnect.ui.circulo.SeleccionarContactoFragment"
+        android:label="@string/title_circulo"
+        tools:layout="@layout/fragment_seleccionar_contacto">
+
+        <action
+            android:id="@+id/action_seleccionarContactoFragment_to_crearAlarmaFragment"
+            app:destination="@id/create_alarm_fragment" />
+    </fragment>
+
+
+    <fragment
+        android:id="@+id/create_alarm_fragment"
+        android:name="com.example.alarmconnect.ui.createalarm.CreateAlarmFragment"
+        tools:layout="@layout/fragment_create_alarm"
+        android:label="Crear Alarma" >
+
+        <action
+            android:id="@+id/action_navigation_createAlarmFragment_to_grabar"
+            app:destination="@id/grabarFragment" />
+        <argument
+            android:name="tipoAlarma"
+            app:argType="string" />
+
+        <action
+            android:id="@+id/action_crearAlarmaFragment_to_seleccionarContactoFragment"
+            app:destination="@id/seleccionar_contacto" />
+        <action
+            android:id="@+id/action_create_alarm_fragment_to_configuracionVolumenFragment"
+            app:destination="@id/configuracionVolumenFragment" />
+        <action
+            android:id="@+id/action_create_alarm_fragment_to_configuracionRepeticionFragment"
+            app:destination="@id/configuracionRepeticionFragment" />
+        <action
+            android:id="@+id/action_create_alarm_fragment_to_navigation_home"
+            app:destination="@id/navigation_home" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/grabarFragment"
+        android:name="com.example.alarmconnect.ui.grabar.GrabarFragment"
+        tools:layout="@layout/fragment_grabar"
+        android:label="Grabar Audio" >
+
+    </fragment>
+    <fragment
+        android:id="@+id/configuracionVolumenFragment"
+        android:name="com.example.alarmconnect.ui.volumen.ConfiguracionVolumenFragment"
+        android:label="configuracion_volumen_vibrar"
+        tools:layout="@layout/fragment_configuracion_volumen_vibrar" >
+        <action
+            android:id="@+id/action_configuracionVolumenFragment_to_create_alarm_fragment"
+            app:destination="@id/create_alarm_fragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/configuracionRepeticionFragment"
+        android:name="com.example.alarmconnect.ui.repeticion.ConfiguracionRepeticionFragment"
+        android:label="fragment_configuracion_repeticion"
+        tools:layout="@layout/fragment_configuracion_repeticion" >
+        <action
+            android:id="@+id/action_configuracionRepeticionFragment_to_create_alarm_fragment"
+            app:destination="@id/create_alarm_fragment" />
+    </fragment>
+</navigation>
