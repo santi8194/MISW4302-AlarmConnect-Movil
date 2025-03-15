@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:padding="8dp">
+
+    <!-- Icono MiCirculo -->
+    <ImageView
+        android:id="@+id/iconoMiCirculo"
+        android:layout_width="24dp"
+        android:layout_height="24dp"
+        app:srcCompat="@android:drawable/btn_star_big_off"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"/>
+
+    <!-- Nombre del contacto -->
+    <TextView
+        android:id="@+id/nombreContacto"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="Nombre"
+        android:textSize="16sp"
+        app:layout_constraintStart_toEndOf="@id/iconoMiCirculo"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/eliminarButton"/>
+
+    <!-- Relación del contacto -->
+    <TextView
+        android:id="@+id/relacionContacto"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="Relación"
+        android:textSize="13sp"
+        android:textColor="@android:color/darker_gray"
+        app:layout_constraintStart_toEndOf="@id/iconoMiCirculo"
+        app:layout_constraintTop_toBottomOf="@id/nombreContacto"
+        app:layout_constraintEnd_toStartOf="@id/eliminarButton"/>
+
+    <!-- Botón Eliminar -->
+    <!-- Botón de Seleccionar -->
+    <Button
+        android:id="@+id/eliminarButton"
+        style="@style/Widget.Material3.Button.OutlinedButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Eliminar"
+        android:textSize="11sp"
+        android:textColor="@android:color/black"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:textAppearance="@style/TextAppearance.Material3.LabelSmall" />
+</androidx.constraintlayout.widget.ConstraintLayout>
